@@ -53,6 +53,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'admin_logged' => \Foostart\Acl\Http\Middleware\AdminLogged::class,
+        'logged' => \Foostart\Acl\Http\Middleware\Logged::class,
+        'can_see' => \Foostart\Acl\Http\Middleware\CanSee::class,
+        'has_perm' => \Foostart\Acl\Http\Middleware\HasPerm::class,
+        'in_context' => \Foostart\Category\Middleware\InContext::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
